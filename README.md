@@ -1,24 +1,23 @@
-# README
+# MVP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+MVP repo volunteeriors
 
-Things you may want to cover:
+## User data entry flow
 
-* Ruby version
+1. Find volunteer
+2. Login
+3. Apply volunteer that match
+4. Enter ratings
+5. Save and return to volunteer profile
 
-* System dependencies
+## Volunteer browse
 
-* Configuration
+1. Display map based on user's location
+2. Filter results
+3. Go to volunteer profile page
 
-* Database creation
+## Volunteer search
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Search from any page
+2. Autocomplete
+3. Go to volunteer profile page
