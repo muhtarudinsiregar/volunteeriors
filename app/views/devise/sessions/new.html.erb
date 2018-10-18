@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                            <div class="form-label-group">
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email Address', required: true %>
+                                <%= f.label :email %><br />
+                            </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+                            <div class="form-label-group">
+                                <%= f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password', required: true %>
+                                <%= f.label :password %><br />
+                            </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+                            <% if devise_mapping.rememberable? -%>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <%= f.check_box :remember_me, class: 'custom-control-input' %>
+                                    <%= f.label :remember_me, class: 'custom-control-label' %>
+                                </div>
+                            <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                            <hr class="my-4">
+                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i>
+                                Sign in with Google</button>
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i>
+                                Sign in with Facebook</button>
+                        <% end %>
+                        <%= render "devise/shared/links" %>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
