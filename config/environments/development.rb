@@ -32,8 +32,17 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.default_url_options = { :host => ENV['APP_DOMAIN'] }
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = ENV['MAIL_DRIVER'].to_sym
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['MAIL_USERNAME'],
+    :password => ENV['MAIL_PASSWORD'],
+    :address => ENV['MAIL_HOST'],
+    :domain => ENV['MAIL_HOST'],
+    :port => ENV['MAIL_PORT'],
+    :authentication => :cram_md5
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
